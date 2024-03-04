@@ -13,7 +13,7 @@
 	let timeoutId: number;
 </script>
 
-<div class="grid">
+<div class="grid" style="--size: {Math.sqrt(grid.length)}">
 	{#each grid as emoji, i}
 		<Square
 			{emoji}
@@ -56,8 +56,8 @@
 	.grid {
 		height: 100%;
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(4, 1fr);
+		grid-template-columns: repeat(var(--size), 1fr);
+		grid-template-rows: repeat(var(--size), 1fr);
 		grid-gap: 0.5em;
 		perspective: 100vw;
 	}
