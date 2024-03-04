@@ -27,6 +27,9 @@
 	button {
 		--size: 3.5rem;
 
+		border: none;
+		cursor: pointer;
+		background: transparent;
 		width: var(--size);
 		height: var(--size);
 	}

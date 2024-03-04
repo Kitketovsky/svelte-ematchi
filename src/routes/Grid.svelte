@@ -59,5 +59,6 @@
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(4, 1fr);
 		grid-gap: 0.5em;
+		perspective: 100vw;
 	}
 </style>

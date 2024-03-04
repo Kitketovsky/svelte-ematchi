@@ -84,7 +84,6 @@
 	}
 
 	.info {
-		background-color: red;
 		width: 70vmin;
 		height: 10vmin;
 		display: flex;
@@ -93,7 +92,6 @@
 	}
 
 	.grid {
-		background-color: aquamarine;
 		width: 70vmin;
 		height: 70vmin;
 	}

@@ -6,37 +6,50 @@
 	export let found: boolean;
 </script>
 
-<div class="square" class:flipped={selected}>
-	{#if !found}
-		<button on:click>
-			<img alt={emoji} src={getTwemojiUrl(emoji)} />
-		</button>
-	{/if}
+<div class="square" class:flipped={selected || found}>
+	<button on:click disabled={selected || found} />
+
+	<img alt={emoji} src={getTwemojiUrl(emoji)} />
 </div>
 
 <style>
 	.square {
 		display: flex;
+		align-items: center;
+		justify-content: center;
+		transform-style: preserve-3d;
+		transition: transform 0.4s;
+		border-radius: 1em;
 	}
 
-	.square button {
-		justify-content: center;
-		align-items: center;
-		background-color: yellow;
+	button {
+		border-radius: 1em;
+		border: 0;
 		width: 100%;
 		height: 100%;
 		position: absolute;
+		backface-visibility: hidden;
+		background-color: #ccc;
+		cursor: pointer;
+		transition: transform 0.2s ease-in-out;
 	}
 
-	button img {
-		--size: 4em;
+	button:hover {
+		transform: scale(1.04);
+	}
+
+	img {
+		--size: 3em;
 
 		width: var(--size);
 		height: var(--size);
 		pointer-events: none;
+		transform: rotateY(180deg);
+		backface-visibility: hidden;
 	}
 
-	.square.flipped button {
-		background-color: purple;
+	.flipped {
+		border: 2px solid purple;
+		transform: rotateY(180deg);
 	}
 </style>
