@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/grandstander": "^5.0.19"
+		"@fontsource/grandstander": "^5.0.19",
+		"@neoconfetti/svelte": "^2.2.1"
 	}
 }

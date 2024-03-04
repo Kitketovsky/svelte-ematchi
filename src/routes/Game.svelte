@@ -17,8 +17,8 @@
 	let playing = false;
 
 	export function play(level: Level) {
-		found = [];
 		grid = createInitialGrid(level);
+		found = [];
 
 		remaining = level.duration;
 		duration = level.duration;
@@ -73,6 +73,7 @@
 
 			if (remaining <= 0) {
 				dispatch('state', 'lost');
+				playing = false;
 			}
 
 			requestAnimationFrame(loop);

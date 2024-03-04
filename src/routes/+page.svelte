@@ -1,8 +1,9 @@
 <script lang="ts">
 	import './../styles.css';
+	import { confetti } from '@neoconfetti/svelte';
 	import Game from './Game.svelte';
 	import Modal from './Modal.svelte';
-	import { levels, type Level } from './levels';
+	import { levels } from './levels';
 
 	let state: 'waiting' | 'won' | 'lost' | 'paused' | 'playing' = 'waiting';
 
@@ -48,6 +49,16 @@
 	}}
 />
 
+{#if state === 'won'}
+	<div
+		class="confetti"
+		use:confetti={{
+			stageHeight: innerHeight,
+			stageWidth: innerWidth
+		}}
+	></div>
+{/if}
+
 <style>
 	header {
 		text-align: center;
@@ -77,5 +88,14 @@
 		border-radius: 0.4em;
 		font-size: 1.4em;
 		font-family: 'Grandstander';
+	}
+
+	.confetti {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		top: 30%;
+		left: 50%;
 	}
 </style>
